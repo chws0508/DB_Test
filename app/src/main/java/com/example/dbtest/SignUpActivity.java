@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpActivity extends AppCompatActivity{
     private FirebaseAuth mAuth;//파이어베이스 계정 연동1
-    private static final String TAG="SignUpActivity";//태그설정
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -26,7 +26,7 @@ public class SignUpActivity extends AppCompatActivity{
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-        findViewById(R.id.LoginButton).setOnClickListener(onClickListener);
+        findViewById(R.id.checkButton).setOnClickListener(onClickListener);
         findViewById(R.id.gotoLoginButton).setOnClickListener(onClickListener);
     }
 
@@ -42,11 +42,11 @@ public class SignUpActivity extends AppCompatActivity{
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.LoginButton:
+                case R.id.checkButton:
                     signUp();
                     break;
                 case R.id.gotoLoginButton:
-                    startLoginActivity();
+                    myStartActivity(LoginActivity.class);
                     break;
             }
         }
@@ -65,6 +65,7 @@ public class SignUpActivity extends AppCompatActivity{
                                 if (task.isSuccessful()) {
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     startToast("회원가입에 성공 하였습니다");
+                                    myStartActivity(MainActivity.class);
                                     //UI
                                 } else {
                                     if (task.getException() != null)
@@ -87,8 +88,9 @@ public class SignUpActivity extends AppCompatActivity{
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
-    private void startLoginActivity(){
-        Intent intent=new Intent( this,LoginActivity.class);
+    private void myStartActivity(Class c){
+        Intent intent=new Intent( this, c);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
