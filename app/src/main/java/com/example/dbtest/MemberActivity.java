@@ -1,5 +1,6 @@
 package com.example.dbtest;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -26,6 +27,7 @@ public class MemberActivity extends AppCompatActivity{
         setContentView(R.layout.activity_member_init);
 
         findViewById(R.id.checkButton).setOnClickListener(onClickListener);
+        findViewById(R.id.profileimageView).setOnClickListener((onClickListener));
 
 
     }
@@ -36,11 +38,29 @@ public class MemberActivity extends AppCompatActivity{
         finish();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+       switch (requestCode){
+           case 0:{
+               if(resultCode== Activity.RESULT_OK){
+
+               }
+               break;
+           }
+       }
+
+
+    }
+
 
     View.OnClickListener onClickListener=new View.OnClickListener() {//확인 버튼 누르면 회원정보 등록
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
+                case R.id.profileimageView:
+                    myStartActivity(CameraActivity.class);
+                    break;
                 case R.id.checkButton:
                     profileUpdate();
                     break;
@@ -89,6 +109,11 @@ public class MemberActivity extends AppCompatActivity{
     private void startToast(String msg){//토스팅 하는 함수
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }//토스트 메세지 띄우는 함수
+
+    private void myStartActivity(Class c){
+        Intent intent=new Intent( this, c);
+        startActivityForResult(intent, 0);
+    }
 
     }
 

@@ -45,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
         if (user == null) {//만약 로그인이 안되어 있다면 회원가입창 띄우기
             myStartActivity(SignUpActivity.class);
         }else {//로그인이 됐다면
-            myStartActivity(CameraActivity.class);
+            myStartActivity(MemberActivity.class);
+           // myStartActivity(CameraActivity.class);
 
             FirebaseFirestore db = FirebaseFirestore.getInstance();//데이터베이스 선언
             DocumentReference docRef = db.collection("users").document(user.getUid());//유저의 개인 아이디를 통해 데이터를  읽어옴
