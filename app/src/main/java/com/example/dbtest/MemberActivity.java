@@ -82,12 +82,6 @@ public class MemberActivity extends AppCompatActivity{
 
             }
 
-
-
-
-
-
-
         }else{
             startToast("회원정보를 입력해주세요");
         }
