@@ -10,6 +10,7 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
     //
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> //갤러리 읽기 허용
 
 
 
@@ -21,22 +22,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DBtest">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".activity.LoginActivity">
         </activity>
-        <activity android:name=".SignUpActivity">
+        <activity android:name=".activity.SignUpActivity">
         </activity>
-        <activity android:name=".PasswordResetActivity">
+        <activity android:name=".activity.PasswordResetActivity">
         </activity>
-        <activity android:name=".MemberActivity">
+        <activity android:name=".activity.MemberActivity">
         </activity>
-        <activity android:name=".CameraActivity">
+        <activity android:name=".activity.CameraActivity">
+        </activity>
+        <activity android:name=".activity.GalleryActivity">
         </activity>
     </application>
 

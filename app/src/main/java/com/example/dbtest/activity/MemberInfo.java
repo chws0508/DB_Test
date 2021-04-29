@@ -1,4 +1,4 @@
-package com.example.dbtest;
+package com.example.dbtest.activity;
 
 //회원 정보 저장
 
@@ -17,6 +17,13 @@ public class MemberInfo {
         this.Date=Date;
         this.adress=adress;
         this.photoUrl = photoUrl;
+    }
+    public MemberInfo(String name, String phoneNumber, String adress, String Date)
+    {
+        this.name=name;
+        this.phoneNumber=phoneNumber;
+        this.Date=Date;
+        this.adress=adress;
     }
 
     public String getName(){

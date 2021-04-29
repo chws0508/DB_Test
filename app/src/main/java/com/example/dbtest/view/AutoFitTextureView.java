@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.dbtest;
+package com.example.dbtest.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
