@@ -8,13 +8,15 @@ public class MemberInfo {
     private String phoneNumber;
     private String Date;
     private String adress;
+    private String photoUrl;
 
-    public MemberInfo(String name, String phoneNumber, String adress, String Date)
+    public MemberInfo(String name, String phoneNumber, String adress, String Date,String photoUrl)
     {
         this.name=name;
         this.phoneNumber=phoneNumber;
         this.Date=Date;
         this.adress=adress;
+        this.photoUrl = photoUrl;
     }
 
     public String getName(){
@@ -43,6 +45,13 @@ public class MemberInfo {
     }
     public void setAdress(String adress){
         this.adress=adress;
+    }
+
+    public String getPhotoUrl(){
+        return this.photoUrl;
+    }
+    public void setPhotoUrl(String photoUrl){
+        this.photoUrl = photoUrl;
     }
 
 
